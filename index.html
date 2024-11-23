@@ -109,6 +109,24 @@
   transform: scale(1.1);
 }
 
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 (height / width * 100) */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 
 </style>
 
@@ -423,7 +441,9 @@
 <div>
 	  <h3 class="heading">Business Analysis 360 view for AtliQ Hardwares</h3>
 
-	  <iframe title="BI_360" width="1110" height="573.5" src="https://app.powerbi.com/view?r=eyJrIjoiZGJiY2FmYzctNWJlZS00YjU2LWJkMTUtNTk0NTA2YzdiY2FlIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" frameborder="0" allowFullScreen="true"></iframe>
+	  <div class="iframe-container">
+		<iframe title="BI_360" src="https://app.powerbi.com/view?r=eyJrIjoiZGJiY2FmYzctNWJlZS00YjU2LWJkMTUtNTk0NTA2YzdiY2FlIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9" frameborder="0" allowFullScreen="true"></iframe>
+	  </div>
 </div>
 	  <div class="row d-flex">
 		<div class="col-md-4 d-flex ftco-animate">
