@@ -467,42 +467,66 @@
 
 
 
-		 <div class="col-md-4 d-flex ftco-animate">
+<!-- Add this within your existing layout structure -->
+<div class="col-md-4 d-flex ftco-animate">
   <div class="blog-entry justify-content-end">
     <!-- Clickable Image -->
     <a href="#" onclick="showReport(event)" class="block-20 zoom-effect" style="background-image: url('18137.jpg'); cursor: pointer; display: block;">
     </a>
-    <!-- Clickable Heading (Maintaining the original style) -->
-    <h3 class="heading" onclick="showReport(event)" style="cursor: pointer;">
+    <!-- Clickable Heading (Preserving original style) -->
+    <h3 class="heading" onclick="showReport(event)">
       Business Insights 360, AtliQ Hardwares
     </h3>
     <p>A comprehensive dashboard including Finance, Marketing, Supply Chain, Sales, and Executive department analysis.</p>
-
-    <!-- Power BI Embed Section (Initially hidden) -->
-    <div id="powerbi-report" style="display: none; width: 100%; height: 100vh;">
-      <iframe 
-        title="BI_360" 
-        width="100%" 
-        height="100%" 
-        src="https://app.powerbi.com/view?r=eyJrIjoiZGJiY2FmYzctNWJlZS00YjU2LWJkMTUtNTk0NTA2YzdiY2FlIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9&pageName=9f48b5f0ea7c20a1273e" 
-        frameborder="0" 
-        allowFullScreen="true">
-      </iframe>
-    </div>
   </div>
 </div>
 
+<!-- Full-Screen Power BI Embed Section (Initially hidden) -->
+<div id="full-screen-report" class="full-screen-overlay" style="display:none;">
+  <div class="overlay-content">
+    <iframe 
+      title="BI_360" 
+      src="https://app.powerbi.com/view?r=eyJrIjoiZGJiY2FmYzctNWJlZS00YjU2LWJkMTUtNTk0NTA2YzdiY2FlIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9&pageName=9f48b5f0ea7c20a1273e" 
+      frameborder="0" 
+      allowFullScreen="true" 
+      style="width: 100%; height: 100vh; border: none;">
+    </iframe>
+    <button onclick="closeReport()" style="position: absolute; top: 10px; right: 10px; padding: 10px; background-color: #f44336; color: white; border: none; cursor: pointer;">Close</button>
+  </div>
+</div>
+
+<!-- Make sure the iframe appears when clicked -->
 <script>
   function showReport(event) {
-    event.preventDefault();
-    const reportDiv = document.getElementById('powerbi-report');
-    if (reportDiv.style.display === 'none') {
-      reportDiv.style.display = 'block'; // Show the report
-    } else {
-      reportDiv.style.display = 'none'; // Hide the report if clicked again
-    }
+    event.preventDefault();  // Prevents default link behavior
+    const reportDiv = document.getElementById('full-screen-report');
+    reportDiv.style.display = 'block';  // Show the full-screen iframe
+  }
+
+  function closeReport() {
+    const reportDiv = document.getElementById('full-screen-report');
+    reportDiv.style.display = 'none';  // Hide the full-screen iframe
   }
 </script>
+
+<!-- Full-Screen Overlay CSS -->
+<style>
+  .full-screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);  /* Dark background */
+    z-index: 9999;  /* Makes sure it's on top */
+    display: none;  /* Initially hidden */
+  }
+  .overlay-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+</style>
 
 
 
