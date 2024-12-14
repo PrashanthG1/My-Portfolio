@@ -462,17 +462,49 @@
         </div>
       </div>
 
-   <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-        <a href= "https://github.com/PrashanthG1/Regork_analysis" target="_blank" class="block-20 zoom-effect" style="background-image: url('18137.jpg');">
-        </a>
-        <div class="text mt-3 float-right d-block">
 
-          <h3 class="heading"><a href= "https://app.powerbi.com/groups/me/reports/f613bb7e-5d8d-4c08-82ee-f7ed8a55fd30/9f48b5f0ea7c20a1273e?experience=power-bi&clientSideAuth=0" target="_blank"> Business Insights 360, AtliQ Hardwares </a></h3>
-          <p>A comprehensive dashboard including Finance, marketing, supplychain, sales and executive department analysis.</p>
-        </div>
-      </div>
+
+<div class="col-md-4 d-flex ftco-animate">
+  <div class="blog-entry justify-content-end">
+    <a href="#" class="block-20 zoom-effect" style="background-image: url('18137.jpg');" onclick="showReport(event)">
+    </a>
+    <div class="text mt-3 float-right d-block">
+      <h3 class="heading">Business Insights 360, AtliQ Hardwares</h3>
+      <p>A comprehensive dashboard including Finance, Marketing, Supply Chain, Sales, and Executive department analysis.</p>
     </div>
+    <!-- Power BI Embed Section -->
+    <div id="powerbi-report" style="display: none; margin-top: 10px;">
+      <iframe 
+        width="100%" 
+        height="400" 
+        src="https://app.powerbi.com/groups/me/reports/f613bb7e-5d8d-4c08-82ee-f7ed8a55fd30/9f48b5f0ea7c20a1273e?experience=power-bi&clientSideAuth=0" 
+        frameborder="0" 
+        allowFullScreen="true">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showReport(event) {
+    event.preventDefault();
+    const reportDiv = document.getElementById('powerbi-report');
+    reportDiv.style.display = 'block'; // Show the Power BI report
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+		 
 
 
     <div class="col-md-4 d-flex ftco-animate">
